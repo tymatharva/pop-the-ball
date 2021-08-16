@@ -1,0 +1,26 @@
+.game-container{
+    height: auto;
+    padding: 20px 3px 3px;
+    position: relative;
+    /* padding-bottom: 10px; */
+}
+.game-screen{
+    /* margin: 10px 3px 3px; */
+    /* background-color: red; */
+    /* border: 2px solid orange; */
+    position: relative;
+    height: 100%;
+}
+.game-logo-container{
+    position: absolute;
+    /* height: 154px; */
+    width: 60%;
+    /* border: 2px solid pink; */
+    left: 50%;
+    top: -8%;
+    transform: translateX(-50%);
+}
+.game-logo{
+    width: 100%;
+    /* height: ; */
+}

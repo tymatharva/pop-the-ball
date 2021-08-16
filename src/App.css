@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+#root, html{
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  height: 100%;
+  padding: 90px 44px;
+  background-color: #00012E;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.main-container{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 25% 1fr 23%;
+  grid-template-rows: 60% 40%;
+  grid-template-areas: 
+  "leftsb game rightsb"
+  "leftsb score rightsb";
+  gap: 1rem;
+}
+
+
+.score-container{
+  grid-area: score;
+  /* border: 2px solid red; */  
+}
+.game-container{
+  grid-area: game;
+  /* border: 2px solid orange; */
+  background-color: #FFEF00;
+}
+.left-sidebar{
+  grid-area: leftsb;
+  background: #00BAFF;
+  padding: 30px 5px;
+  /* border: 2px solid olive; */
+}
+.right-sidebar{
+  grid-area: rightsb;
+  /* border: 2px solid aqua; */
+  background: #00BAFF;
+  padding: 30px 5px;
+  /* background: #00BAFF; */
+}
+.gradient-container{
+  background: transparent linear-gradient(146deg, #004B68 0%, #000B1D 56%, #00263E 100%) 0% 0% no-repeat padding-box;
+  height: 100%;
+}
+
+/* .idle{
+  position: absolute;
+  width: calc(4096px / 8);
+  height: 512px;
+  background: url("./assets/Idle.png");
+  animation: animate 0.6s steps(8) infinite;
+
+}
+
+@keyframes animate {
+  from{
+    background-position: 0;
+  }
+  to{
+    background-position: 4096px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.blast{
+  position: absolute;
+  top: 530px;
+  width: calc(4096px / 8);
+  height: 512px;
+  background: url("./assets/Blast.png");
+  animation: animate 0.6s steps(8) infinite;
+} */
