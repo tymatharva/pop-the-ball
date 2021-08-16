@@ -1,7 +1,8 @@
 import React from 'react'
-import "../styles/GameContainer.css"
+import "../styles/GameContainer.scss"
 import Logo from "../assets/Logo.png"
 import Idle from './sprites/Idle'
+import Gun from './sprites/Gun'
 
 const GameContainer = () => {
     return (
@@ -15,7 +16,8 @@ const GameContainer = () => {
             {/* Game Starts */}
             <div className="game-screen container-border">
                 
-                <Idle />
+                {/* <Idle /> */}
+                <Gun />
             </div>
             {/* Game Ends */}
             {/* <h1>From Game Container</h1> */}

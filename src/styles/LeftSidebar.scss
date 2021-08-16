@@ -1,0 +1,40 @@
+.left-sidebar{
+    /* padding: 1rem 2rem; */
+}
+
+.left-sidebar-container{
+    display: grid;
+    height: 95%;
+    grid-template-rows: 55px 1fr;
+    padding: 2rem 0.5rem;
+    gap: 1rem;
+    grid-template-areas: 
+    "tabs"
+    "contentbox";
+}
+.leftsb__button__container{
+    grid-area: tabs;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: var(--sidebarContainerBackground);
+    border-radius: 20px;
+}
+.leftsb__button{
+    padding: 1rem 1.75rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9;
+    font-weight: bold;
+}
+.leftsb__button--active{
+    color: black;
+    background-color: var(--popBlue)
+}
+.leftsb__content{
+    grid-area: contentbox;
+    // height: 50vh;
+    border: 2px solid orange;
+}

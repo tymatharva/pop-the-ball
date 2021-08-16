@@ -1,9 +1,9 @@
-import './App.css';
+import './App.scss';
 import LeftSidebar from './components/LeftSidebar';
 import RightSidebar from './components/RightSidebar';
 import GameContainer from './components/GameContainer';
 import ScoreContainer from './components/ScoreContainer';
-import "./styles/common.css"
+import "./styles/common.scss"
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import "../styles/ScoreContainer.css"
-import "../styles/common.css"
+import "../styles/ScoreContainer.scss"
+import "../styles/common.scss"
 const ScoreContainer = () => {
     return (
         <div className="score-container container-border">

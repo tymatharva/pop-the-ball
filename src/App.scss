@@ -6,13 +6,25 @@ body{
   height: 100%;
   padding: 90px 44px;
   background-color: #00012E;
+  min-width: 1600px;
+  
+  
+  @media screen and (max-width: 1680px) {
+    // zoom: 0.7;
+    transform: scale(0.9);
+  }
+  @media screen and (max-width: 1400px) {
+
+    // zoom: 0.7;
+    transform: scale(0.7);
+  }
 }
 
 .main-container{
   height: 100%;
   display: grid;
   grid-template-columns: 25% 1fr 23%;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 63% 37%;
   grid-template-areas: 
   "leftsb game rightsb"
   "leftsb score rightsb";
@@ -46,30 +58,3 @@ body{
   background: transparent linear-gradient(146deg, #004B68 0%, #000B1D 56%, #00263E 100%) 0% 0% no-repeat padding-box;
   height: 100%;
 }
-
-/* .idle{
-  position: absolute;
-  width: calc(4096px / 8);
-  height: 512px;
-  background: url("./assets/Idle.png");
-  animation: animate 0.6s steps(8) infinite;
-
-}
-
-@keyframes animate {
-  from{
-    background-position: 0;
-  }
-  to{
-    background-position: 4096px;
-  }
-}
-
-.blast{
-  position: absolute;
-  top: 530px;
-  width: calc(4096px / 8);
-  height: 512px;
-  background: url("./assets/Blast.png");
-  animation: animate 0.6s steps(8) infinite;
-} */
