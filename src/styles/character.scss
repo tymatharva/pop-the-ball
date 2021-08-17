@@ -15,7 +15,8 @@ Idle
     zoom: 0.75;
     /* top: 0; */
     left: -2%;
-    bottom: -10%;    
+    bottom: -10%;   
+    z-index: 20; 
 }
 
 @media screen and (max-width: 1680px) {
@@ -76,4 +77,5 @@ Gun
     /* top: 0; */
     left: -2%;
     bottom: -10%;    
+    z-index: 20;
 }
