@@ -1,0 +1,72 @@
+.tb_score-container{
+    grid-area: score;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    padding: 3px;
+    // gap: 3px;
+    /* background-color: ; */
+    background: #00BAFF;
+}
+
+.sc__left_container{
+    background: linear-gradient(146deg, #004B68, #000B1D, #00263E);
+    padding: 1rem 1.25rem;
+    .margin-box{
+        border: 2px solid red;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr 0.75fr 0.9fr 1fr;
+        grid-template-areas: 
+        "one"
+        "two"
+        "three"
+        "four";
+
+        .bet__container{
+            grid-area: one;
+            border: 2px solid olive;
+        }
+        .bet__grid{
+            grid-area: two;
+            border: 2px solid pink;
+        }
+        .bet__cashout{
+            grid-area: three;
+            border: 2px solid purple;
+        }
+        .bet__button{
+            grid-area: four;
+            border: 2px solid khaki;
+        }
+
+    }
+}
+
+.bet__container{
+    display: flex;
+
+    &__left{
+        border: 2px solid gold;
+        flex: 0.6;
+
+        .betamt__container{
+            display: flex;
+            // border: 2px solid gold;
+            padding: 0.5rem;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-top: auto;
+            margin-left: auto;
+            // margin-bottom: 1rem;
+        }
+        .bet__amt{
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--popYellow);
+        }
+    }
+    &__right{
+        border: #000B1D solid 2px;
+        flex: 0.4;
+    }
+}

@@ -3,9 +3,12 @@ import LeftSidebar from './components/LeftSidebar';
 import RightSidebar from './components/RightSidebar';
 import GameContainer from './components/GameContainer';
 import ScoreContainer from './components/ScoreContainer';
+import TwoBetScoreContainer from './components/TwoBetScoreContainer';
 import "./styles/common.scss"
+import { useState } from 'react';
 
 function App() {
+  const [twoBet, setTwoBet] = useState(false); 
   return (
     <div className="main-container">
       {/* <Game /> */}
@@ -16,7 +19,9 @@ function App() {
       {/* Game Container */}
       <GameContainer />
       {/* Score Container */}
-      <ScoreContainer />
+      {
+        twoBet ? <TwoBetScoreContainer setTwoBet={setTwoBet} /> : <ScoreContainer setTwoBet={setTwoBet} />
+      }
     </div>
   );
 }

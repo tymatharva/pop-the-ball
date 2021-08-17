@@ -1,8 +1,7 @@
-.left-sidebar{
-    /* padding: 1rem 2rem; */
-}
-
-.left-sidebar-container{
+.right-sidebar-container{
+    padding: 1rem;
+    // border: 2px solid red;
+    
     display: grid;
     height: 95%;
     grid-template-rows: 55px 1fr;
@@ -12,7 +11,8 @@
     "tabs"
     "contentbox";
 }
-.leftsb__button__container{
+
+.rightsb__button__container{
     grid-area: tabs;
     display: flex;
     width: 90%;
@@ -22,101 +22,75 @@
     background-color: var(--sidebarContainerBackground);
     border-radius: 20px;
 }
-.leftsb__button{
+.rightsb__button{
+    flex: 0.5;
     padding: 1rem 1.75rem;
+    text-align: center;
     border-radius: 20px;
     color: white;
     font-size: 0.9;
     font-weight: bold;
 }
-.leftsb__button--active{
+.rightsb__button--active{
     color: black;
     background-color: var(--popBlue)
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: transparent
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: var(--rowActive)
-}
-
-.leftsb__content{
+.rightsb__content{
     grid-area: contentbox;
     height: 103%;
     // border: 2px solid orange;
     overflow: hidden;
     
-    
-    
-    
     .pt__header{
         display: flex;
-        color: var(--textGold);
+        color: white;
         font-weight: bold;
         // border: 2px solid red;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 85%;
         margin: 0 auto;
-        padding: 0 1rem 1rem;
+        padding: 0 1rem 0.5rem;
     }
     
     .pt__rows__container{
         height: 100%;
         overflow-y: scroll;
+        padding-bottom: 1rem;
         // height: auto;
-        // border: 2px solid aqua;
         
         .pt__row__item{
             display: flex;
+            // border: 2px solid aqua;
             font-weight: bold;
             align-items: center;
             justify-content: space-between;
             width: 85%;
             margin: 0.5rem auto;
-            padding: 1rem;
+            padding: 0.6rem;
             border-radius: 6px;
+            text-align: center;
 
             &:last-of-type{
                 margin-bottom: 2rem;
             }
 
             &--active{
-                background-color: var(--rowActive);
+                background-color: rgba(0, 94, 125, 0.452);
+                // opacity: 0.5;
+                
             }
-
-            .pt__row__user{
-                flex: 0.3;
-                color: var(--popBlue);
-                // border: 2px solid red;
-            }
-            .pt__row__bet{
+            .pt__row__time{
                 color: white;
-                flex: 0.3;
+                flex: 0.5;
                 // border: 2px solid red;
             }
             .pt__row__coeff{
                 color: var(--textGold);
-                flex: 0.2;
+                flex: 0.5;
                 // border: 2px solid red;
             }
-            .pt__row__win{
-                color: white;
-                flex: 0.23;
-                // border: 2px solid red;
-                text-align: end;
-            }
-
         }
     }
 }
