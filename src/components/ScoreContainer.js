@@ -6,6 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle, faMinusCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Switch } from '@material-ui/core';
+import avatar from "../assets/avatar.png"
 
 
 const ScoreContainer = ({ setTwoBet }) => {
@@ -93,7 +94,7 @@ const ScoreContainer = ({ setTwoBet }) => {
             <div className="score-container__right">
                 <div className="sc__right__icon">
                     <div className="sc__right__icon__container">
-                        <FontAwesomeIcon icon={faUserCircle} style={{fontSize: "6rem"}} />
+                        <img src={avatar} />
                     </div>
                 </div>
                 <div className="sc__right__points">

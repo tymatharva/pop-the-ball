@@ -1,6 +1,6 @@
 .score-container{
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 40% 60%;
     padding: 3px;
     /* background-color: ; */
     background: #00BAFF;
@@ -51,8 +51,10 @@
         padding: 0.5rem;
         align-items: baseline;
         justify-content: space-between;
-        margin-top: auto;
+        margin-top: 6%;
         margin-left: auto;
+        background: url("../assets/Shape2.png") no-repeat ;
+        background-size: contain;
         // margin-bottom: 1rem;
     }
     .bet__amt{
@@ -77,10 +79,10 @@
 
 .sc__grid{
     display: grid;
-    padding: 0.5rem 2.5rem;
+    padding: 0.1rem 2.5rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 4px;
+    gap: 6px;
 
     &__item{
         display: flex;
