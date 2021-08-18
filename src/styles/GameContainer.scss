@@ -122,10 +122,10 @@
 
 @keyframes move45 {
     from{
-        transform: translateX(0);
+        transform: translate(0, 0);
     }
     to{
-        transform: translateX(-500%);
+        transform: translate(-500%, 300%);
     }
 }
 

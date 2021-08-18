@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 // Styles 
 import "../styles/GameContainer.scss"
+import { useAudio } from 'react-use'
 
 // Assets
 import Logo from "../assets/Logo.png"
@@ -11,9 +12,11 @@ import Planet1 from "../assets/Planet1.png"
 import Planet2 from "../assets/Planet2.png"
 import Cloud1 from "../assets/Cloud1.png"
 import Cloud2 from "../assets/Cloud2.png"
+import blaster from "../assets/AudioClip/blaster_shot.m4a"
 
 // Components
 import YellowCustomLoader from './mini/YellowCustomLoader'
+import BlasterShot from './audio/BlasterShot'
 
 
 const GameContainer = () => {
@@ -22,6 +25,12 @@ const GameContainer = () => {
     const [blast, setBlast] = useState(false);
     const [waitForBlast, setWaitForBlast] = useState(false);
     const [showLoader, setShowLoader] = useState(true);
+    const [audio, state, controls, ref] = useAudio({
+        src: blaster,
+        autoPlay: true,
+    })
+
+    
     // const [timer, setTimer] = useState()
 
     useEffect(() => {
@@ -42,12 +51,13 @@ const GameContainer = () => {
                 }, 3000);
             }, 1000); 
 
-        }, 10000);
+        }, 3000);
         return () => clearInterval(shootInterval) 
     }, [])
 
     return (
         <div className="game-container container-border">
+
             {/* Pop logo Starts*/}
             <div className="game-logo-container">
                 <img src={Logo} className="game-logo" alt="" />
@@ -71,12 +81,10 @@ const GameContainer = () => {
                     !blast ? <div className={`ball ${shoot ? "ball-anim" : ""}`}></div> : null
                 }
                 
-
                 {/* Trail */}
                 {
                     !blast ?  <div className={`trail ${shoot ? "trail-anim" : ""}`}></div> : null
-                }
-               
+                }               
 
                 {/* Planet 1 */}
                 <div className={`planet1 shift-left-more ${waitforit&& !blast ? "" : "paused"}`}><img src={Planet1} alt="" /></div>
@@ -86,9 +94,20 @@ const GameContainer = () => {
 
                 {/* Gradient Layer */}
                 <div className={`gradient-layer  ${waitforit && !blast ? "shift-down" : " paused"}`}></div>
+
+                {/* Pop ka character */}
                 {
                     shoot ?  <div className={`gun ${waitforit ? "shift-left" : ""}`}></div> : <div className="idle"></div>
                 }
+                  
+                   {/* <BlasterShot variable={shoot} />  */}
+        
+                {/* {audio}
+                {() => controls.play()} */}
+                  {/* <audio controls autoPlay="true">
+                      <source src={blaster} type="audio/mpeg" />
+                  </audio> */}
+                
 
                 {
                     !blast ? (waitforit ? <div className="score">1.91X</div> : null) : null
