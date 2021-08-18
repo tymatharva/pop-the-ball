@@ -95,3 +95,29 @@ body{
   background: transparent linear-gradient(146deg, #004B68 0%, #000B1D 36%, #00263E 100%) 0% 0% no-repeat padding-box;
   height: 100%;
 }
+
+.orientation-img{
+  // background: url("./assets/unnamed.png");
+  // background-size: 100%;
+  // background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  height: 100vh;
+  margin-top: auto;
+  // border: 2px solid red;
+  transform: translateY(100%);
+
+  .orient-text{
+    color: white;
+    font-size: 3rem;
+  }
+  
+  img{
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+}
