@@ -109,7 +109,8 @@ const GameContainer = () => {
 
                             {/* Game Result */}
                             <div className="game-result">
-
+                                <div className="game-result-text">Game Result</div>
+                                <div className="game-result-score">1.34x</div>
                             </div>
                         </>
                     ) : null

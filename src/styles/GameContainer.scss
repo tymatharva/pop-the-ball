@@ -398,3 +398,40 @@
         transform: scale(1);
     }
 }
+
+//////////////////////////////////////
+// Blast Result
+//////////////////////////////////////
+.game-result{
+    position: absolute;
+    top: 52%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    z-index: 22;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    animation: result-animation 2s ease;
+    
+    &-text{
+        text-transform: uppercase;
+        // font-size: 0.9rem;
+        letter-spacing: 0.5;
+        font-weight: bold;
+    }
+    &-score{
+        // text-transform: uppercase;
+        font-family: "ARDESTINE";
+        font-size: 3rem;
+        // font-weight: bold;
+    }
+}
+
+@keyframes result-animation {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

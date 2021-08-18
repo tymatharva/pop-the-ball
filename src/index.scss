@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
+@font-face {
+  font-family: "ARDESTINE";
+  src: url("./assets/fonts/ARDESTINE.ttf");
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
