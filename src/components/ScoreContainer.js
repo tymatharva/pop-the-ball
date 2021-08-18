@@ -13,6 +13,9 @@ import CustomSwitch from './mini/CustomSwitch';
 const ScoreContainer = ({ setTwoBet }) => {
     const [autoBetState, setAutoBetState] = useState(false);
     const [autoCashOutState, setAutoCashOutState] = useState(false);
+    const [multiplier, setMultiplier] = useState(1.01);
+    const [betValue, setBetValue] = useState(100);
+
     const betStyles = {
         color: "var(--popYellow)", 
         fontSize: "2.5rem",
@@ -48,11 +51,11 @@ const ScoreContainer = ({ setTwoBet }) => {
             <div className="score-container__left">
                 <div className="sc__betamt">
                     <div className="betamt__container">
-                        <div className="betamt__minus">
+                        <div className="betamt__minus" onClick={() => setBetValue(betValue - 100)}>
                             <FontAwesomeIcon icon={faMinusCircle} style={betStyles} />
                         </div>
-                        <div className="bet__amt">100</div>
-                        <div className="betamt__plus">
+                        <div className="bet__amt">{betValue}</div>
+                        <div className="betamt__plus" onClick={() => setBetValue(betValue + 100)}>
                             <FontAwesomeIcon icon={faPlusCircle} style={betStyles} />
                         </div>
                     </div>
@@ -72,17 +75,21 @@ const ScoreContainer = ({ setTwoBet }) => {
                     <div className="sc__grid__item">4000</div>
                     <div className="sc__grid__item">5000</div>
                 </div>
-                <div className="sc__multiplier">
-                    <div className="sc__multiplier__container">
-                        <div className="mul__minus">
-                            <FontAwesomeIcon icon={faMinusCircle} style={multiplierStyles.left} />
-                        </div>
-                        <div className="mul__amt">x1.01</div>
-                        <div className="mul__plus">
-                            <FontAwesomeIcon icon={faPlusCircle} style={multiplierStyles.right} />
+                {/* Multiplier Starts */}
+                    <div className="sc__multiplier">
+                        <div className="sc__multiplier__container">
+                            <div className="mul__minus" onClick={() => setMultiplier(multiplier - 0.01)}>
+                                <FontAwesomeIcon icon={faMinusCircle} style={multiplierStyles.left} />
+                            </div>
+                            
+                            <div className="mul__amt">x{multiplier}</div>
+                            {/* <div className="mul__amt">x{multiplier.toFixed(2)}</div> */}
+                            <div className="mul__plus" onClick={() => setMultiplier(multiplier + 0.01)}>
+                                <FontAwesomeIcon icon={faPlusCircle} style={multiplierStyles.right} />
+                            </div>
                         </div>
                     </div>
-                </div>
+                {/* Multiplier Ends */}
                 <div className="sc__autocashout">
                     <div className="sc__autocashout__container">
                         <div className="sc__autocashout__text">Auto Cashout</div>
