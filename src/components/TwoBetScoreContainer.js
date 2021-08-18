@@ -1,6 +1,10 @@
 import React from 'react'
+
+// Styles
 import "../styles/TwoBetScoreContainer.scss"
-import { faPlusCircle, faMinusCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
+// Icons
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TwoBetScoreContainer = () => {
@@ -19,13 +23,13 @@ const TwoBetScoreContainer = () => {
                     <div className="bet__container">
                         <div className="bet__container__left">
                         <div className="betamt__container">
-                        <div className="betamt__minus">
-                            <FontAwesomeIcon icon={faMinusCircle} style={betStyles} />
-                        </div>
-                        <div className="bet__amt">100</div>
-                        <div className="betamt__plus">
-                            <FontAwesomeIcon icon={faPlusCircle} style={betStyles} />
-                        </div>
+                            <div className="betamt__minus">
+                                <FontAwesomeIcon icon={faMinusCircle} style={betStyles} />
+                            </div>
+                            <div className="bet__amt">100</div>
+                            <div className="betamt__plus">
+                                <FontAwesomeIcon icon={faPlusCircle} style={betStyles} />
+                            </div>
                     </div>
                         </div>
                         <div className="bet__container__right"></div>

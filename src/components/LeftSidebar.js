@@ -1,19 +1,41 @@
 import React, { useState } from 'react'
+
+// Styles
 import "../App.scss"
 import "../styles/LeftSidebar.scss"
+
+// Fonts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-// import { Switch } from '@material-ui/core';
-// import Switch from "react-switch"
+
+// Components
 import CustomSwitch from './mini/CustomSwitch'
+import LsAllBets from './mini/LsAllBets'
+import LsMyBets from './mini/LsMyBets'
+import LsTopWins from './mini/LsTopWins'
 
 const LeftSidebar = () => {
 
     const [audio, setAudio] = useState(false);
+    const [selectedTab, setSelectedTab] = useState(0);
 
     function handleAudioChange(checked){
         console.log("Switch", checked);
         setAudio(checked)
+    }
+
+    function handleTabChange(selectedTab){
+        switch (selectedTab) {
+            case 0: 
+                return <LsAllBets users={users} />
+            case 1: 
+                return <LsMyBets />
+            case 2: 
+                return <LsTopWins />
+        
+            default:
+                break;
+        }
     }
 
     const [users, setUsers] = useState([
@@ -112,6 +134,7 @@ const LeftSidebar = () => {
     
     return (
         <div className="left-sidebar container-border">
+            {/* Header Starts */}
             <div className="left-sidebar-header">
                 <div className="audio-container">
                     <div className="audio-container-text">
@@ -126,12 +149,14 @@ const LeftSidebar = () => {
                     <FontAwesomeIcon icon={faInfoCircle} size='1.2x' />
                 </div>
             </div>
+            {/* Header Ends */}
+
             <div className="gradient-container left-sidebar-container">
                 {/* <p>Left Sidebar</p> */}
                 <div className="leftsb__button__container">
-                    <div className="leftsb__button leftsb__button--active">All Bets</div>
-                    <div className="leftsb__button">My Bets</div>
-                    <div className="leftsb__button">Top Wins</div>
+                    <div className={`leftsb__button ${selectedTab === 0 ? "leftsb__button--active" : ""}`} onClick={() => setSelectedTab(0)}>All Bets</div>
+                    <div className={`leftsb__button ${selectedTab === 1 ? "leftsb__button--active" : ""}`} onClick={() => setSelectedTab(1)}>MyBets</div>
+                    <div className={`leftsb__button ${selectedTab === 2 ? "leftsb__button--active" : ""}`} onClick={() => setSelectedTab(2)}>Top Wins</div>
                 </div>
 
                 <div className="leftsb__content">
@@ -142,32 +167,14 @@ const LeftSidebar = () => {
                         <div className="pt__title">Win</div>
                     </div>
 
-                    <div className="pt__rows__container">
-                        {
-                            users.map(({name, bet, coeff, win, active}) => {
-                                return (
-                                    <div className={`pt__row__item ${active ? "pt__row__item--active" : ""}`}>
-                                        <div className="pt__row__user">{name}</div>
-                                        <div className="pt__row__bet">{bet}</div>
-                                        <div className="pt__row__coeff">{coeff === null ? "----" : coeff}</div>
-                                        <div className="pt__row__win">{win === null ? "----" : win}</div>
-                                    </div>
-                                )
-                            })
-                        }
-                        {/* <div className="pt__row__item pt__row__item--active">
-                            <div className="pt__row__user">A***M</div>
-                            <div className="pt__row__bet">1000</div>
-                            <div className="pt__row__coeff">----</div>
-                            <div className="pt__row__win">----</div>
-                        </div>
-                        <div className="pt__row__item">
-                            <div className="pt__row__user">A***M</div>
-                            <div className="pt__row__bet">1000</div>
-                            <div className="pt__row__coeff">1.12</div>
-                            <div className="pt__row__win">1120</div>
-                        </div> */}
-                    </div>
+                    {
+                        handleTabChange(selectedTab)
+                    }
+
+                      
+                   
+
+                    
                 </div>
             </div>
         </div>
