@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+
+// Styles 
 import "../styles/ScoreContainer.scss"
 import "../styles/common.scss"
-// import { faPlus } from "@fortawesome/free-regular-svg-icons";
+
+// Icons
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faPlusCircle, faMinusCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Switch } from '@material-ui/core';
+
+// Assets
 import avatar from "../assets/avatar.png"
 import CustomSwitch from './mini/CustomSwitch';
 
@@ -22,12 +26,14 @@ const ScoreContainer = ({ setTwoBet }) => {
         padding: "0rem 0.5rem",
         cursor: "pointer",
     }
+
     const multiplierStyles = {
         left: {
             color: "var(--popBlue)", 
             fontSize: "2.25rem",
             paddingRight: "0.5rem",
             cursor: "pointer",
+            opacity: `${multiplier === 1.01 ? 0.2 : 1}`,
         },
         right : {
             color: "var(--popBlue)", 
@@ -51,7 +57,10 @@ const ScoreContainer = ({ setTwoBet }) => {
             <div className="score-container__left">
                 <div className="sc__betamt">
                     <div className="betamt__container">
-                        <div className="betamt__minus" onClick={() => setBetValue(betValue - 100)}>
+                        <div className="betamt__minus" onClick={() => {
+                            if(betValue === 100) return ;
+                            else setBetValue(betValue - 100);
+                        }}>
                             <FontAwesomeIcon icon={faMinusCircle} style={betStyles} />
                         </div>
                         <div className="bet__amt">{betValue}</div>
@@ -68,12 +77,12 @@ const ScoreContainer = ({ setTwoBet }) => {
                     </div>
                 </div> 
                 <div className="sc__grid">
-                    <div className="sc__grid__item">500</div>
-                    <div className="sc__grid__item">1000</div>
-                    <div className="sc__grid__item">2000</div>
-                    <div className="sc__grid__item">3000</div>
-                    <div className="sc__grid__item">4000</div>
-                    <div className="sc__grid__item">5000</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(500)}>500</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(1000)}>1000</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(2000)}>2000</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(3000)}>3000</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(4000)}>4000</div>
+                    <div className="sc__grid__item" onClick={() => setBetValue(5000)}>5000</div>
                 </div>
                 {/* Multiplier Starts */}
                     <div className="sc__multiplier">
@@ -82,8 +91,8 @@ const ScoreContainer = ({ setTwoBet }) => {
                                 <FontAwesomeIcon icon={faMinusCircle} style={multiplierStyles.left} />
                             </div>
                             
-                            <div className="mul__amt">x{multiplier}</div>
-                            {/* <div className="mul__amt">x{multiplier.toFixed(2)}</div> */}
+                            {/* <div className="mul__amt">x{multiplier}</div> */}
+                            <div className="mul__amt">x{multiplier.toFixed(2)}</div>
                             <div className="mul__plus" onClick={() => setMultiplier(multiplier + 0.01)}>
                                 <FontAwesomeIcon icon={faPlusCircle} style={multiplierStyles.right} />
                             </div>
