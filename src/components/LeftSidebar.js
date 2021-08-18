@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import "../App.scss"
 import "../styles/LeftSidebar.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { Switch } from '@material-ui/core';
 
 const LeftSidebar = () => {
+
+    const [audio, setAudio] = useState(false);
+
+    function handleAudioChange(){
+        setAudio(!audio)
+    }
 
     const [users, setUsers] = useState([
         {
@@ -100,6 +109,20 @@ const LeftSidebar = () => {
     
     return (
         <div className="left-sidebar container-border">
+            <div className="left-sidebar-header">
+                <div className="audio-container">
+                    <div className="audio-container-text">
+                        Audio
+                    </div>
+                    <div className="audio-container-switch">
+                        <Switch style={{color: `${audio ? "#00FF31" : "#005791"}`}} color="primary" onChange={handleAudioChange}/>
+                    </div>
+                </div>
+                {/* OnClick should open info modal */}
+                <div className="rules-button">
+                    <FontAwesomeIcon icon={faInfoCircle} size='1.2x' />
+                </div>
+            </div>
             <div className="gradient-container left-sidebar-container">
                 {/* <p>Left Sidebar</p> */}
                 <div className="leftsb__button__container">

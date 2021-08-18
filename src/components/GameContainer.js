@@ -17,6 +17,7 @@ const GameContainer = () => {
     const [waitforit, setWaitforit] = useState(false);
     const [blast, setBlast] = useState(false);
     const [waitForBlast, setWaitForBlast] = useState(false);
+    // const [timer, setTimer] = useState()
 
     useEffect(() => {
         const shootInterval = setInterval(() => {
