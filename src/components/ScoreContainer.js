@@ -7,6 +7,7 @@ import { faPlusCircle, faMinusCircle, faUserCircle } from '@fortawesome/free-sol
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Switch } from '@material-ui/core';
 import avatar from "../assets/avatar.png"
+import CustomSwitch from './mini/CustomSwitch';
 
 
 const ScoreContainer = ({ setTwoBet }) => {
@@ -59,7 +60,8 @@ const ScoreContainer = ({ setTwoBet }) => {
                 <div className="sc__autobet">
                     <div className="sc__autobet__container">
                         <div className="sc__autobet__text">Auto Bet</div>
-                        <Switch style={{color: `${autoBetState ? "#00FF31" : "#005791"}`}} inputProps={{ 'aria-label': 'primary checkbox' }} color="primary" onChange={handleBetChange}/>
+                        {/* <Switch style={{color: `${autoBetState ? "#00FF31" : "#005791"}`}} inputProps={{ 'aria-label': 'primary checkbox' }} color="primary" onChange={handleBetChange}/> */}
+                        <CustomSwitch checked={autoBetState} handleCheckedChange={handleBetChange} />
                     </div>
                 </div> 
                 <div className="sc__grid">
@@ -83,8 +85,9 @@ const ScoreContainer = ({ setTwoBet }) => {
                 </div>
                 <div className="sc__autocashout">
                     <div className="sc__autocashout__container">
-                        <div className="sc__autobet__text">Auto Cashout</div>
-                        <Switch style={{color: `${autoCashOutState ? "#00FF31" : "#005791"}`}} inputProps={{ 'aria-label': 'primary checkbox' }} color="primary" onChange={handleCashOutChange}/>
+                        <div className="sc__autocashout__text">Auto Cashout</div>
+                        {/* <Switch style={{color: `${autoCashOutState ? "#00FF31" : "#005791"}`}} inputProps={{ 'aria-label': 'primary checkbox' }} color="primary" onChange={handleCashOutChange}/> */}
+                        <CustomSwitch checked={autoCashOutState} handleCheckedChange={handleCashOutChange} />
                     </div>
                 </div>
             </div>

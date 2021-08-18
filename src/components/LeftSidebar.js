@@ -3,14 +3,17 @@ import "../App.scss"
 import "../styles/LeftSidebar.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import { Switch } from '@material-ui/core';
+// import { Switch } from '@material-ui/core';
+// import Switch from "react-switch"
+import CustomSwitch from './mini/CustomSwitch'
 
 const LeftSidebar = () => {
 
     const [audio, setAudio] = useState(false);
 
-    function handleAudioChange(){
-        setAudio(!audio)
+    function handleAudioChange(checked){
+        console.log("Switch", checked);
+        setAudio(checked)
     }
 
     const [users, setUsers] = useState([
@@ -115,7 +118,7 @@ const LeftSidebar = () => {
                         Audio
                     </div>
                     <div className="audio-container-switch">
-                        <Switch style={{color: `${audio ? "#00FF31" : "#005791"}`}} color="primary" onChange={handleAudioChange}/>
+                        <CustomSwitch checked={audio} handleCheckedChange={handleAudioChange} />
                     </div>
                 </div>
                 {/* OnClick should open info modal */}
