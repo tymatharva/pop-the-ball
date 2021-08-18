@@ -113,7 +113,7 @@ const ScoreContainer = ({ setTwoBet }) => {
             <div className="score-container__right">
                 <div className="sc__right__icon">
                     <div className="sc__right__icon__container">
-                        <img src={avatar} />
+                        <img src={avatar} alt="user icon" />
                     </div>
                 </div>
                 <div className="sc__right__points">
@@ -130,7 +130,10 @@ const ScoreContainer = ({ setTwoBet }) => {
                 <div className="sc__right__newbet">
                     <div className="sc__right__newbet__container">
                         <div className="sc__right__newbet__text">NEW BET</div>
-                        <div className="sc__right__newbet__icon" onClick={() => setTwoBet(true)}>
+                        {/* <div className="sc__right__newbet__icon" onClick={() => setTwoBet(true)}> */}
+
+                        {/* Two Bet Container is available, just uncomment the above line */}
+                        <div className="sc__right__newbet__icon">
                             <FontAwesomeIcon icon={faPlus} style={{fontSize: "1.75rem", color: "white"}} />
                         </div>
                     </div>
