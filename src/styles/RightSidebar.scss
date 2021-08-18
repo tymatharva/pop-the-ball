@@ -77,10 +77,9 @@
             }
 
             &--active{
-                background-color: rgba(0, 94, 125, 0.452);
-                // opacity: 0.5;
-                
+                background-color: var(--sbActive);                
             }
+            
             .pt__row__time{
                 color: white;
                 flex: 0.5;
