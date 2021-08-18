@@ -6,9 +6,11 @@ import ScoreContainer from './components/ScoreContainer';
 import TwoBetScoreContainer from './components/TwoBetScoreContainer';
 import "./styles/common.scss"
 import { useState } from 'react';
+import Modal from "react-modal"
 
 function App() {
   const [twoBet, setTwoBet] = useState(false); 
+  // Modal.setAppElement('#yourAppElement');
   return (
     <div className="main-container">
       {/* <Game /> */}

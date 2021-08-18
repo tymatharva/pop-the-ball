@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Modal from "react-modal"
 
 // Styles
 import "../App.scss"
@@ -18,6 +19,7 @@ const LeftSidebar = () => {
 
     const [audio, setAudio] = useState(false);
     const [selectedTab, setSelectedTab] = useState(0);
+    const [openModal, setOpenModal] = useState(false)
 
     function handleAudioChange(checked){
         console.log("Switch", checked);
@@ -36,6 +38,25 @@ const LeftSidebar = () => {
             default:
                 break;
         }
+    }
+
+    const customStyles = {
+        content: {
+            width: "65%",
+            height: "75%",
+            margin: "auto",
+            padding: "30px 5px 5px",
+            border: "0",
+            // padding: "20px",
+            zIndex: "300",
+            background: "var(--popBlue)",
+            overflow: "hidden"
+        },
+        overlay: {
+            background: "rgba(0, 0, 0, 0.7)",
+            zIndex: "300",
+        }
+        
     }
 
     const [users, setUsers] = useState([
@@ -145,7 +166,7 @@ const LeftSidebar = () => {
                     </div>
                 </div>
                 {/* OnClick should open info modal */}
-                <div className="rules-button">
+                <div className="rules-button" onClick={() => setOpenModal(true)}>
                     <FontAwesomeIcon icon={faInfoCircle} size='1.2x' />
                 </div>
             </div>
@@ -170,13 +191,47 @@ const LeftSidebar = () => {
                     {
                         handleTabChange(selectedTab)
                     }
-
-                      
-                   
-
                     
                 </div>
             </div>
+
+            <Modal isOpen={openModal} style={customStyles}>
+                <div className="modal__content">
+                    <div className="modal__grid">
+                        <div className="how_to_play">
+                            <div className="how_to_play__header">
+                                <div className="header__title">How to Play</div>
+                                <div className="header__subtitle">Quick Explanation: </div>
+                            </div>
+                                <div className="htp__grid">
+                                    <div className="pt-1 pt-common">The player needs to place a bet and then wait till the cannon strikes</div>
+                                    <div className="pt-2 pt-common">The player wins if he or she cashes out before the coefficient explodes</div>
+                                    <div className="pt-3 pt-common">The player needs to click on "cash out" button before the coefficient explodes</div>
+                                    <div className="pt-4 pt-common">The player loses if he or she hasn't cashed out before the coefficient explodes</div>
+                                </div>
+                        </div>
+                        <div className="details">
+                            <div className="details__header">
+                                <div className="details__title">Details</div>
+                            </div>
+                                <div className="details-rules__grid">
+                                    <div className="grid-left">
+                                        <div className="pt-1 pt-common">Before the round starts the player needs to place his/her bet.</div>
+                                        <div className="pt-2 pt-common">The player can use "auto bet" and "auto cash out" features.</div>
+                                        <div className="pt-3 pt-common">Minimum bet amount is 500 Pts.</div>
+                                        <div className="pt-4 pt-common">Maximum bet amount is 5,000 Pts.</div>
+                                    </div>
+                                    <div className="grid-right">
+                                        <div className="pt-1 pt-common">Before the round starts the player needs to place his/her bet.</div>
+                                        <div className="pt-2 pt-common">The player can use "auto bet" and "auto cash out" features.</div>
+                                        <div className="pt-3 pt-common">Minimum bet amount is 500 Pts.</div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <button className="close-btn" onClick={() => setOpenModal(false)}>Close</button>
+                </div>
+            </Modal>
         </div>
     )
 }
