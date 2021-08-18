@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+
+// Styles
 import "../styles/common.scss"
 import "../styles/RightSidebar.scss"
+
+// Components
+import RsHighest from "./mini/RsHighest"
+import RsHistory from "./mini/RsHistory"
 
 const RightSidebar = () => {
     const [data, setData] = useState([
@@ -81,12 +87,26 @@ const RightSidebar = () => {
             coeff: "1.41x",
         },
     ])
+
+    const [selectedTab, setSelectedTab] = useState(0);
+
+    function handleTabChange(selectedTab){
+        switch (selectedTab) {
+            case 0: 
+                return <RsHistory data={data}/>
+            case 1: 
+                return <RsHighest data={data}/>
+        
+            default:
+                break;
+        }
+    }
     return (
         <div className="right-sidebar container-border">
             <div className="gradient-container right-sidebar-container">
             <div className="rightsb__button__container">
-                    <div className="rightsb__button rightsb__button--active">History</div>
-                    <div className="rightsb__button">Highest</div>
+                    <div className={`rightsb__button ${selectedTab === 0 ? "rightsb__button--active" : ""}`} onClick={() => setSelectedTab(0)}>History</div>
+                    <div className={`rightsb__button ${selectedTab === 1 ? "rightsb__button--active" : ""}`} onClick={() => setSelectedTab(1)}>Highest</div>
 
                 </div>
 
@@ -97,18 +117,10 @@ const RightSidebar = () => {
                         
                     </div>
 
-                    <div className="pt__rows__container">
-                        {
-                            data.map(({time, coeff}) => {
-                                return (
-                                    <div className={`pt__row__item pt__row__item--active`}>
-                                        <div className="pt__row__time">{time}</div>
-                                        <div className="pt__row__coeff">{coeff === null ? "----" : coeff}</div>
-                                    </div>
-                                )
-                            })
-                        }
-                        </div>
+                    {
+                        handleTabChange(selectedTab)
+                    }
+                    
                 </div>
             </div>
         </div>

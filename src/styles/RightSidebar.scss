@@ -30,6 +30,7 @@
     color: white;
     font-size: 0.9;
     font-weight: bold;
+    cursor: pointer;
 }
 .rightsb__button--active{
     color: black;
@@ -79,7 +80,7 @@
             &--active{
                 background-color: var(--sbActive);                
             }
-            
+
             .pt__row__time{
                 color: white;
                 flex: 0.5;
