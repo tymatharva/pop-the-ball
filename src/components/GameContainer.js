@@ -1,40 +1,48 @@
 import React, { useState, useEffect } from 'react'
+
+// Styles 
 import "../styles/GameContainer.scss"
+
+// Assets
 import Logo from "../assets/Logo.png"
-import Idle from './sprites/Idle'
-import Gun from './sprites/Gun'
 import Bg1 from "../assets/bg1.png"
 import Bg2 from "../assets/bg2.png"
-import Stars2 from "../assets/stars2.png"
 import Planet1 from "../assets/Planet1.png"
 import Planet2 from "../assets/Planet2.png"
 import Cloud1 from "../assets/Cloud1.png"
 import Cloud2 from "../assets/Cloud2.png"
-// import Trail from './sprites/Trail'
+
+// Components
+import YellowCustomLoader from './mini/YellowCustomLoader'
+
 
 const GameContainer = () => {
     const [shoot, setShoot] = useState(false);
     const [waitforit, setWaitforit] = useState(false);
     const [blast, setBlast] = useState(false);
     const [waitForBlast, setWaitForBlast] = useState(false);
+    const [showLoader, setShowLoader] = useState(true);
     // const [timer, setTimer] = useState()
 
     useEffect(() => {
         const shootInterval = setInterval(() => {
-            setShoot(true);
             setTimeout(() => {
-                // setShoot(false);
-                setWaitforit(true);
-            }, 1000)
-
-            setTimeout(() => {
-                setBlast(true);
+                setShowLoader(false);
+                setShoot(true);
                 setTimeout(() => {
-                    setWaitForBlast(true);
-                }, 700)
-            }, 3000);
+                    // setShoot(false);
+                    setWaitforit(true);
+                }, 1000)
+    
+                setTimeout(() => {
+                    setBlast(true);
+                    setTimeout(() => {
+                        setWaitForBlast(true);
+                    }, 700)
+                }, 3000);
+            }, 1000); 
 
-        }, 1000);
+        }, 10000);
         return () => clearInterval(shootInterval) 
     }, [])
 
@@ -116,8 +124,18 @@ const GameContainer = () => {
                         </>
                     ) : null
                 }
+                {
+                    showLoader ? (
+                        <div className="yellow-loader-container">
+                            <div className="yellow-loader-content">
+                                <div className="yellow-loader-timer">10.3</div>
+                                <div className="yellow-loader-text">Waiting for the next round</div>
+                            </div>
+                            <YellowCustomLoader />
+                        </div>
+                    ) : null
+                }
                 
-                {/* <Gun /> */}
             </div>
             {/* Game Ends */}
 

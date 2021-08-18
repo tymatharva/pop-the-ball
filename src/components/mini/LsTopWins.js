@@ -1,9 +1,10 @@
 import React from 'react'
+import BlueCustomLoader from './BlueCustomLoader'
 
 const LsTopWins = () => {
     return (
-        <div>
-            from top wins
+        <div className="lsmybets-container">
+            <BlueCustomLoader />
         </div>
     )
 }

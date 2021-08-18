@@ -32,3 +32,78 @@ h1, h2, h3, p{
   --popYellow: #FFEF00;
   --sbActive: rgba(0, 94, 125, 0.452);
 }
+
+// Yellow Loader
+
+#Path_6-y{
+  fill: #FFEF00;
+}
+#Path_6-2-y{
+  fill: #FFEF00;
+  // fill: rgba(255, 239, 0, 0.9);
+  opacity: 0.6;
+}
+#Path_6-3-y{
+  fill: #FFEF00;
+  opacity: 0.2;
+}
+#Path_6-4-y{
+  fill: #FFEF00;
+  opacity: 0.5;
+}
+#Path_6-5-y{
+  fill: #FFEF00;
+  opacity: 0.1;
+}
+.custom-loader-yellow{
+  animation: rotate-loader 1.5s infinite steps(6);
+  zoom: 0.885;
+}
+
+@keyframes rotate-loader {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
+// Blue Loader
+.custom-blue{
+
+}
+
+#Path_6-b{
+  fill: var(--popBlue);
+}
+#Path_6-2-b{
+  fill: var(--popBlue);
+  // fill: rgba(255, 239, 0, 0.9);
+  opacity: 0.6;
+}
+#Path_6-3-b{
+  fill: var(--popBlue);
+  opacity: 0.2;
+}
+#Path_6-4-b{
+  fill: var(--popBlue);
+  opacity: 0.5;
+}
+#Path_6-5-b{
+  fill: var(--popBlue);
+  opacity: 0.1;
+}
+.custom-loader-blue{
+  animation: rotate-loader 8s infinite steps(6);
+  // zoom: 0.885;
+}
+
+@keyframes rotate-loader {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
